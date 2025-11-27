@@ -22,7 +22,7 @@ export async function GET() {
       maxSlots: info.virtualserver_maxclients,
       status: "online",
       ip: "alleh.ir",
-      ping: info.virtualserver_total_ping.toString(),
+      ping: info.virtualserver_total_ping,
       name: info.virtualserver_name,
       uptime: info.virtualserver_uptime,
     });
