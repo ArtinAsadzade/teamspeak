@@ -1,4 +1,5 @@
-import { headers } from "next/headers";
+export const dynamic = "force-dynamic";
+
 import ClientUI from "./components/ClientUI";
 
 const features = [
