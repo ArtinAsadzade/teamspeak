@@ -1,3 +1,6 @@
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 import { TeamSpeak } from "ts3-nodejs-library";
 
 export async function GET() {
