@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./globals.css";
 import localFont from "next/font/local";
 
@@ -35,7 +36,9 @@ export default function RootLayout({ children }) {
           <header className="w-full border-b border-white/5 bg-black/40 backdrop-blur-md">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
               <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-fuchsia-500 via-sky-500 to-emerald-400 shadow-[0_0_25px_rgba(56,189,248,0.9)]" />
+                <div className="h-8 w-8 rounded-lg shadow-[0_0_25px_rgba(56,189,248,0.9)]">
+                  <Image alt="Alleh TeamSpeak Logo" width={40} height={40} src="/alleh.png" className="rounded-lg" />
+                </div>
                 <div className="flex flex-col">
                   <span className="text-xs text-slate-400">TeamSpeak Server</span>
                   <span className="text-lg font-bold tracking-[0.2em] text-slate-50">ALLEH</span>
