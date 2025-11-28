@@ -71,7 +71,6 @@ export default async function HomePage() {
             <span className="font-semibold text-sky-300">ALLEH</span> خونه‌ی اسکادران و تیمت می‌تونه باشه.
           </p>
 
-          {/* 🔥 این بخش ClientUI است (Copy / Connect) */}
           <ClientUI serverInfo={serverInfo} />
         </div>
 
@@ -180,7 +179,7 @@ export default async function HomePage() {
         <div className="mx-auto mb-3 h-px max-w-xs bg-gradient-to-r from-fuchsia-500/60 via-sky-500/60 to-emerald-400/60" />
         <p>
           ALLEH TeamSpeak Server — ساخته شده با عشق توسط{" "}
-          <a href="" className="font-semibold text-sky-300">
+          <a href="https://artinasadzade.ir" target="_blank" className="font-semibold text-sky-300">
             Artin Asadzade
           </a>
         </p>
