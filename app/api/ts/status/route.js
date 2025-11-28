@@ -13,18 +13,16 @@ export async function GET() {
 
     const info = await ts3.serverInfo();
 
-    const onlineClients = await ts3.clientList({ clientType: 0 });
-
     await ts3.quit();
 
     return Response.json({
-      onlineUsers: onlineClients.length,
-      maxSlots: info.virtualserver_maxclients,
+      onlineUsers: info.virtualserverClientsonline,
+      maxSlots: info.virtualserverMaxclients,
       status: "online",
       ip: "alleh.ir",
-      ping: info.virtualserver_total_ping,
-      name: info.virtualserver_name,
-      uptime: info.virtualserver_uptime,
+      ping: info.virtualserverTotalPing,
+      name: info.virtualserverName,
+      uptime: info.virtualserverUptime,
     });
   } catch (error) {
     console.error(error);
