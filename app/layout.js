@@ -2,7 +2,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 
 const persianSans = localFont({
-  src: "../public/fonts/DejaVuSans.ttf",
+  src: "../public/fonts/2yekan.ttf",
   display: "swap",
   variable: "--font-persian",
   fallback: ["Arial", "Tahoma", "Helvetica", "sans-serif"],
