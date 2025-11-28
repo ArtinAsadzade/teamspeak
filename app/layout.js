@@ -1,4 +1,3 @@
-// app/layout.js
 import "./globals.css";
 import localFont from "next/font/local";
 
