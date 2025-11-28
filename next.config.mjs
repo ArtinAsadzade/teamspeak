@@ -2,9 +2,8 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
-  experimental: {
-    turbo: false,
-  },
+  experimental: {},
+  serverExternalPackages: ["ts3-nodejs-library", "ssh2"],
 };
 
 export default nextConfig;

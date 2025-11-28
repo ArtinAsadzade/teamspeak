@@ -1,5 +1,14 @@
 // app/layout.js
 import "./globals.css";
+import localFont from "next/font/local";
+
+const persianSans = localFont({
+  src: "../public/fonts/DejaVuSans.ttf",
+  display: "swap",
+  variable: "--font-persian",
+  fallback: ["Arial", "Tahoma", "Helvetica", "sans-serif"],
+});
+
 export const metadata = {
   title: "ALLEH TeamSpeak | سرور تیم‌اسپیک گیمینگ",
   description: "سرور تیم‌اسپیک ALLEH مخصوص گیمرها با پینگ پایین، پایداری بالا و فضای دوستانه. همین حالا به سرور وصل شو و با تیمت هماهنگ شو.",
@@ -15,9 +24,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" className={persianSans.variable}>
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
-        {/* پس‌زمینه نئون گیمینگ */}
         <div className="pointer-events-none fixed inset-0 z-0">
           <div className="absolute -top-40 right-[-20%] h-80 w-80 rounded-full bg-gradient-to-br from-fuchsia-500 via-purple-500 to-sky-500 opacity-30 blur-3xl" />
           <div className="absolute bottom-[-20%] left-[-10%] h-80 w-80 rounded-full bg-gradient-to-tr from-cyan-500 via-blue-500 to-emerald-500 opacity-30 blur-3xl" />
