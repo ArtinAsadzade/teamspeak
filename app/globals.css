@@ -25,3 +25,32 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+.article-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.article-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #dbeafe;
+}
+
+.article-content p,
+.article-content li {
+  color: #d1d5db;
+  line-height: 1.95;
+  margin-top: 0.75rem;
+  font-size: 0.97rem;
+}
+
+.article-content ul {
+  list-style: disc;
+  padding-right: 1.4rem;
+}

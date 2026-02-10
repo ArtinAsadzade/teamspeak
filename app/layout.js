@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import "./globals.css";
 import localFont from "next/font/local";
 
@@ -9,16 +10,42 @@ const persianSans = localFont({
   fallback: ["Arial", "Tahoma", "Helvetica", "sans-serif"],
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alleh.example.com";
+
 export const metadata = {
-  title: "ALLEH TeamSpeak | سرور تیم‌اسپیک گیمینگ",
-  description: "سرور تیم‌اسپیک ALLEH مخصوص گیمرها با پینگ پایین، پایداری بالا و فضای دوستانه. همین حالا به سرور وصل شو و با تیمت هماهنگ شو.",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "ALLEH TeamSpeak | سرور تیم اسپیک ایرانی برای ورود",
+    template: "%s | ALLEH TeamSpeak",
+  },
+  description:
+    "سرور TeamSpeak ایرانی ALLEH برای گیمرها، کلن‌ها و RP. آدرس تیم اسپیک، آموزش ورود، FAQ و مقالات تخصصی برای join teamspeak server.",
+  keywords: [
+    "سرور تیم اسپیک برای ورود",
+    "آدرس تیم اسپیک",
+    "بهترین سرور تیم اسپیک ایرانی",
+    "join teamspeak server",
+    "public teamspeak server",
+    "teamspeak iran",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "ALLEH TeamSpeak | سرور تیم‌اسپیک گیمینگ",
-    description: "به سرور تیم‌اسپیک ALLEH وصل شو؛ جای مخصوص گیمرها برای هماهنگی، رِید و کانتر!",
-    url: "https://alleh.example.com",
+    title: "ALLEH TeamSpeak | سرور تیم اسپیک ایرانی برای ورود",
+    description:
+      "بهترین نقطه شروع برای پیدا کردن و ورود به سرور TeamSpeak ایرانی: آدرس، راهنمای اتصال، رفع مشکل و مقالات کاربردی.",
+    url: "/",
     siteName: "ALLEH TeamSpeak",
     locale: "fa_IR",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "ALLEH TeamSpeak" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ALLEH TeamSpeak | Join TeamSpeak Server",
+    description: "راهنمای کامل ورود به سرور TeamSpeak ایرانی + مقالات تخصصی برای گیمینگ و RP.",
+    images: ["/og.png"],
   },
 };
 
@@ -31,7 +58,6 @@ export default function RootLayout({ children }) {
           <div className="absolute bottom-[-20%] left-[-10%] h-80 w-80 rounded-full bg-gradient-to-tr from-cyan-500 via-blue-500 to-emerald-500 opacity-30 blur-3xl" />
         </div>
 
-        {/* لایه اصلی */}
         <div className="relative z-10 flex min-h-screen flex-col bg-gradient-to-b from-slate-950/80 via-slate-950/95 to-black/95">
           <header className="w-full border-b border-white/5 bg-black/40 backdrop-blur-md">
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
@@ -46,18 +72,10 @@ export default function RootLayout({ children }) {
               </div>
 
               <nav className="hidden items-center gap-4 text-sm text-slate-300 md:flex">
-                <a href="#hero" className="hover:text-white">
-                  خانه
-                </a>
-                <a href="#stats" className="hover:text-white">
-                  وضعیت سرور
-                </a>
-                <a href="#features" className="hover:text-white">
-                  قابلیت‌ها
-                </a>
-                <a href="#join" className="hover:text-white">
-                  اتصال
-                </a>
+                <Link href="/#hero" className="hover:text-white">خانه</Link>
+                <Link href="/#join" className="hover:text-white">آموزش ورود</Link>
+                <Link href="/articles" className="hover:text-white">مقالات</Link>
+                <Link href="/#faq" className="hover:text-white">سوالات متداول</Link>
               </nav>
             </div>
           </header>
