@@ -49,41 +49,9 @@ async function getServerInfo() {
   }
 }
 
-
-async function getPulse() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
-  try {
-    const res = await fetch(`${baseUrl}/api/pulse`, {
-      cache: "no-store",
-      credentials: "include",
-      headers: {
-        "Cache-Control": "no-store",
-      },
-    });
-
-    if (!res.ok) {
-      throw new Error("pulse fetch failed");
-    }
-
-    return await res.json();
-  } catch {
-    return {
-      state: "CALM",
-      summary: "روند کلی رابطه در این هفته آرام و قابل اتکا بوده است.",
-    };
-  }
-}
 export default async function HomePage() {
-  const [serverInfo, pulse] = await Promise.all([getServerInfo(), getPulse()]);
+  const serverInfo = await getServerInfo();
   const isOnline = serverInfo.status === "online";
-
-  const pulseBarClass = {
-    WARM: "from-rose-300/90 via-orange-300/80 to-amber-200/80",
-    CALM: "from-sky-300/80 via-cyan-300/70 to-teal-200/60",
-    UNSTABLE: "from-violet-300/70 via-fuchsia-300/70 to-rose-300/80",
-    LOW_ACTIVITY: "from-slate-400/60 via-slate-300/50 to-slate-200/40",
-  }[pulse.state] || "from-sky-300/80 via-cyan-300/70 to-teal-200/60";
 
   const schema = {
     "@context": "https://schema.org",
@@ -124,7 +92,7 @@ export default async function HomePage() {
         <ClientUI serverInfo={serverInfo} />
       </section>
 
-      <section id="stats" className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <section id="stats" className="grid gap-4 md:grid-cols-3">
         <GlowCard>
           <p className="text-xs text-slate-400">وضعیت سرور</p>
           <p className="mt-1 text-base font-semibold text-slate-50">{isOnline ? "آنلاین" : "آفلاین"}</p>
@@ -136,13 +104,6 @@ export default async function HomePage() {
         <GlowCard>
           <p className="text-xs text-slate-400">آدرس تیم اسپیک</p>
           <p className="mt-1 text-base font-semibold text-slate-50">{serverInfo.ip || "ts.alleh.ir:9987"}</p>
-        </GlowCard>
-        <GlowCard>
-          <p className="text-xs text-slate-400">نبض رابطه</p>
-          <p className="mt-1 text-sm leading-6 text-slate-100">{pulse.summary}</p>
-          <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-white/10">
-            <div className={`h-full w-full bg-gradient-to-r ${pulseBarClass}`} />
-          </div>
         </GlowCard>
       </section>
 
