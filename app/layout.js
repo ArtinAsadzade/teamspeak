@@ -7,7 +7,6 @@ const persianSans = localFont({
   src: "../public/fonts/2yekan.ttf",
   display: "swap",
   variable: "--font-persian",
-  fallback: ["Arial", "Tahoma", "Helvetica", "sans-serif"],
 });
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alleh.example.com";
@@ -15,11 +14,10 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alleh.example.com";
 export const metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "ALLEH TeamSpeak | سرور تیم اسپیک ایرانی برای ورود",
+    default: "ALLEH TeamSpeak | سرور تیم اسپیک ایرانی",
     template: "%s | ALLEH TeamSpeak",
   },
-  description:
-    "سرور TeamSpeak ایرانی ALLEH برای گیمرها، کلن‌ها و RP. آدرس تیم اسپیک، آموزش ورود، FAQ و مقالات تخصصی برای join teamspeak server.",
+  description: "سرور TeamSpeak ایرانی ALLEH برای گیمرها، کلن‌ها و RP. آدرس تیم اسپیک، آموزش ورود، FAQ و مقالات تخصصی برای join teamspeak server.",
   keywords: [
     "سرور تیم اسپیک برای ورود",
     "آدرس تیم اسپیک",
@@ -32,9 +30,8 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "ALLEH TeamSpeak | سرور تیم اسپیک ایرانی برای ورود",
-    description:
-      "بهترین نقطه شروع برای پیدا کردن و ورود به سرور TeamSpeak ایرانی: آدرس، راهنمای اتصال، رفع مشکل و مقالات کاربردی.",
+    title: "ALLEH TeamSpeak | سرور تیم اسپیک ایرانی",
+    description: "بهترین نقطه شروع برای پیدا کردن و ورود به سرور TeamSpeak ایرانی: آدرس، راهنمای اتصال، رفع مشکل و مقالات کاربردی.",
     url: "/",
     siteName: "ALLEH TeamSpeak",
     locale: "fa_IR",
@@ -72,10 +69,18 @@ export default function RootLayout({ children }) {
               </div>
 
               <nav className="hidden items-center gap-4 text-sm text-slate-300 md:flex">
-                <Link href="/#hero" className="hover:text-white">خانه</Link>
-                <Link href="/#join" className="hover:text-white">آموزش ورود</Link>
-                <Link href="/articles" className="hover:text-white">مقالات</Link>
-                <Link href="/#faq" className="hover:text-white">سوالات متداول</Link>
+                <Link href="/#hero" className="hover:text-white">
+                  خانه
+                </Link>
+                <Link href="/#join" className="hover:text-white">
+                  آموزش ورود
+                </Link>
+                <Link href="/articles" className="hover:text-white">
+                  مقالات
+                </Link>
+                <Link href="/#faq" className="hover:text-white">
+                  سوالات متداول
+                </Link>
               </nav>
             </div>
           </header>
