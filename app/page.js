@@ -45,7 +45,7 @@ async function getServerInfo() {
     const res = await fetch(`${baseUrl}/api/ts/status`, { next: { revalidate: 120 } });
     return await res.json();
   } catch {
-    return { status: "offline", ip: "ts.alleh.ir", ping: "-", onlineUsers: 0, maxSlots: "64" };
+    return { status: "offline", ip: "alleh.ir", ping: "-", onlineUsers: 0, maxSlots: "1024" };
   }
 }
 
@@ -84,10 +84,12 @@ export default async function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <section id="hero" className="flex flex-col gap-8">
-        <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl">سرور TeamSpeak ایرانی برای ورود سریع، پینگ پایین و گیمینگ حرفه‌ای</h1>
+        <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+          سرور TeamSpeak ایرانی برای ورود سریع، پینگ پایین و گیمینگ حرفه‌ای
+        </h1>
         <p className="max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
-          اگر دنبال <strong>سرور تیم اسپیک برای ورود</strong> هستید، ALLEH یک <strong>public TeamSpeak server</strong> برای کاربران فارسی و انگلیسی است.
-          اینجا می‌توانید برای کلن، RP و بازی‌های رقابتی، بدون شلوغی اضافی، ارتباط پایدار داشته باشید.
+          اگر دنبال <strong>سرور تیم اسپیک برای ورود</strong> هستید، ALLEH یک <strong>public TeamSpeak server</strong> برای کاربران فارسی و انگلیسی
+          است. اینجا می‌توانید برای کلن، RP و بازی‌های رقابتی، بدون شلوغی اضافی، ارتباط پایدار داشته باشید.
         </p>
         <ClientUI serverInfo={serverInfo} />
       </section>
@@ -130,7 +132,9 @@ export default async function HomePage() {
           <li>Nickname خوانا انتخاب کنید (ترجیحاً [Clan]Name).</li>
           <li>وارد لابی شده و کانال مناسب گیم، کلن یا RP خود را انتخاب کنید.</li>
         </ol>
-        <p className="mt-4 text-sm text-slate-300">قوانین نیک‌نیم: محترمانه، بدون تبلیغ، بدون جعل هویت. کانال‌ها: Lobby، Gaming Squads، RP Rooms، Help Desk.</p>
+        <p className="mt-4 text-sm text-slate-300">
+          قوانین نیک‌نیم: محترمانه، بدون تبلیغ، بدون جعل هویت. کانال‌ها: Lobby، Gaming Squads، RP Rooms، Help Desk.
+        </p>
         <div className="mt-5">
           <Link href="/articles" className="rounded-xl bg-sky-500 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-sky-400">
             مشاهده مقالات آموزشی ورود به TeamSpeak

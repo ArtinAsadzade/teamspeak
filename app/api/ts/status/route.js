@@ -6,12 +6,12 @@ import { TeamSpeak } from "ts3-nodejs-library";
 export async function GET() {
   try {
     const ts3 = await TeamSpeak.connect({
-      host: "ts29.ir",
-      queryport: 11353,
-      serverport: 11352,
+      host: "alleh.upts.ir",
+      queryport: 7117,
+      serverport: 7117,
       username: "serveradmin",
-      password: "agYYVW60rQhpJ3mH6i1au2V28c4BR97Y",
-      nickname: "WebStatusBot",
+      password: "6arNoNubWm0D",
+      nickname: "ALLEH STATUS",
     });
 
     const info = await ts3.serverInfo();
