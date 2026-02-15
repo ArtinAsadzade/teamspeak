@@ -8,8 +8,9 @@ export function generateStaticParams() {
   return getAllArticles().map((article) => ({ slug: article.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const article = getArticleBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   if (!article) return {};
 
   const canonical = article.canonical || `${siteUrl}/articles/${article.slug}`;
@@ -34,8 +35,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function ArticlePage({ params }) {
-  const article = getArticleBySlug(params.slug);
+export default async function ArticlePage({ params }) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
   if (!article) notFound();
 
   const related = getRelatedArticles(article, 3);
@@ -81,7 +83,11 @@ export default function ArticlePage({ params }) {
           <h2 className="text-xl font-bold">مقالات مرتبط</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {related.map((item) => (
-              <Link key={item.slug} href={`/articles/${item.slug}`} className="rounded-xl border border-white/10 bg-slate-950/80 p-3 text-sm hover:border-sky-400">
+              <Link
+                key={item.slug}
+                href={`/articles/${item.slug}`}
+                className="rounded-xl border border-white/10 bg-slate-950/80 p-3 text-sm hover:border-sky-400"
+              >
                 {item.title}
               </Link>
             ))}
