@@ -105,7 +105,7 @@ export default async function HomePage() {
         </GlowCard>
         <GlowCard>
           <p className="text-xs text-slate-400">آدرس تیم اسپیک</p>
-          <p className="mt-1 text-base font-semibold text-slate-50">{serverInfo.ip || "ts.alleh.ir:9987"}</p>
+          <p className="mt-1 text-base font-semibold text-slate-50">{serverInfo.ip || "alleh.ir"}</p>
         </GlowCard>
       </section>
 
@@ -127,7 +127,7 @@ export default async function HomePage() {
           <li>اپ TeamSpeak Client را نصب کنید (Windows / Android / iOS).</li>
           <li>از منوی Connections گزینه Connect را بزنید.</li>
           <li>
-            Server Address را روی <strong>ts.alleh.ir:9987</strong> بگذارید.
+            Server Address را روی <strong>alleh.ir</strong> بگذارید.
           </li>
           <li>Nickname خوانا انتخاب کنید (ترجیحاً [Clan]Name).</li>
           <li>وارد لابی شده و کانال مناسب گیم، کلن یا RP خود را انتخاب کنید.</li>
